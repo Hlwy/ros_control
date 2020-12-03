@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(controller_manager_tests)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED TRUE)
+set(CMAKE_CXX_FLAGS "-std=c++11 ${CMAKE_CXX_FLAGS}")
 
 # Load catkin and all dependencies required for this package
 find_package(catkin REQUIRED COMPONENTS
@@ -67,13 +70,13 @@ endif()
 if(CATKIN_ENABLE_TESTING)
 
   # Install targets
-  install(TARGETS ${PROJECT_NAME} 
+  install(TARGETS ${PROJECT_NAME}
     ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
     LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
     RUNTIME DESTINATION ${CATKIN_GLOBAL_BIN_DESTINATION}
   )
 
-  install(TARGETS dummy_app cm_test 
+  install(TARGETS dummy_app cm_test
         RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
   # Install plugins
